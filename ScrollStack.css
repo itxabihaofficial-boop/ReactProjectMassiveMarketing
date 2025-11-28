@@ -1,0 +1,39 @@
+/* ... keep the top classes (.scroll-stack-scroller, etc) the same ... */
+
+.scroll-stack-inner {
+  padding: 5vh 2rem 50vh; 
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  /* --- CHANGE THIS PART --- */
+  /* Use min-height so cards are always tall enough to require scrolling */
+  min-height: 70vh; 
+  width: 100%;
+  margin-bottom: 5vh; /* Add spacing */
+  /* ------------------------ */
+
+  padding: 2rem;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background: #0a0a0a;
+  border: 1px solid rgba(255,255,255,0.1);
+  
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
