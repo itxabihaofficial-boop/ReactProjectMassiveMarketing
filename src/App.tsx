@@ -16,16 +16,16 @@ const navItems = [
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Initialize router hooks
+ 
   const navigate = useNavigate();
   const location = useLocation();
 
-  // --- GLOBAL SCROLL RESET ---
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // --- Global Cursor Logic ---
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState("default");
 
@@ -70,8 +70,7 @@ const App = () => {
   return (
     <div className="min-h-screen w-full bg-white font-sans">
       
-      {/* --- Global Custom Cursor --- */}
-      {/* UPDATED: Added 'hidden md:block' to hide this on mobile devices */}
+     
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:block"
         variants={variants}

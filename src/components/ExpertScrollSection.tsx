@@ -11,7 +11,7 @@ const expertsData = [
   },
   {
     id: 2,
-    title: "About Solution Box",
+    title: "About Solutionbox",
     description: "I’m Marko — 25+ years in networks & support for MSPs, hosting and enterprise (including airlines). Now I help local businesses get reliable IT without the faff: straight answers, tidy work, and options that fit your budget.",
     image: BulbImage, 
   }
@@ -41,16 +41,20 @@ const ExpertScrollSection = () => {
     <section ref={containerRef} className="relative h-auto md:h-[200vh] bg-[#f5f5f5] font-sans">
       
       {/* Sticky Container */}
-      <div className="sticky top-0 h-auto md:h-screen flex items-center overflow-hidden bg-[#f5f5f5]">
+      {/* UPDATED: Removed 'min-h' completely. Added 'py-10' only for mobile wrapper spacing. */}
+      <div className="sticky top-0 -mb-[66px] h-auto md:h-screen flex items-center overflow-hidden bg-[#f5f5f5] py-10 md:py-0">
         
-        {/* UPDATED: Reduced bottom padding to 'pb-4' */}
-        <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full pt-10 pb-4 md:py-0">
+        {/* UPDATED: 
+            1. Changed 'gap-12' to 'gap-8' (Closer together).
+            2. Changed 'py-10' to 'py-0' (Removes extra internal whitespace).
+        */}
+        <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full py-0">
           
           {/* --- LEFT SIDE: Content --- */}
           <div className="relative flex flex-col justify-center h-full pl-0 md:pl-4">
 
             {/* Number Indicators */}
-            <div className="absolute top-0 md:top-24 right-0 flex flex-col gap-4">
+            <div className="absolute -top-2 md:top-24 right-0 flex flex-col gap-4">
               {expertsData.map((item, idx) => (
                 <div 
                   key={item.id}
@@ -67,7 +71,7 @@ const ExpertScrollSection = () => {
             </div>
 
             {/* Headings */}
-            <div className="grid grid-cols-1 mb-4 mt-8 md:mt-20">
+            <div className="grid grid-cols-1 mb-4 mt-6 md:mt-20">
               {expertsData.map((item, idx) => (
                 <motion.h2 
                   key={item.id}
@@ -78,7 +82,8 @@ const ExpertScrollSection = () => {
                     opacity: idx === activeIndex ? 1 : 0, 
                     filter: idx === activeIndex ? "blur(0px)" : "blur(10px)",
                     y: idx === activeIndex ? 0 : 20, 
-                    pointerEvents: idx === activeIndex ? "auto" : "none", 
+                    pointerEvents: idx === activeIndex ? "auto" : "none",
+                    display: idx === activeIndex ? "block" : "none",
                   }}
                 >
                   {item.title}
@@ -87,23 +92,17 @@ const ExpertScrollSection = () => {
             </div>
 
             {/* Description */}
-            {/* UPDATED: 
-                1. Removed fixed height/min-height. 
-                2. Changed to 'grid grid-cols-1'. 
-                3. This forces the container to be exactly as tall as the text, removing white space below. 
-            */}
             <div className="grid grid-cols-1 relative">
               {expertsData.map((item, idx) => (
                 <motion.p
                   key={item.id}
-                  // UPDATED: 'col-start-1 row-start-1' makes them stack on top of each other
-                  // 'relative' allows the container to calculate height based on content
                   className="col-start-1 row-start-1 text-sm md:text-lg text-gray-600 leading-relaxed max-w-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
                     opacity: idx === activeIndex ? 1 : 0,
                     y: idx === activeIndex ? 0 : 20, 
-                    pointerEvents: idx === activeIndex ? "auto" : "none"
+                    pointerEvents: idx === activeIndex ? "auto" : "none",
+                    display: idx === activeIndex ? "block" : "none",
                   }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
@@ -113,8 +112,9 @@ const ExpertScrollSection = () => {
             </div>
           </div>
 
-          {/* --- RIGHT SIDE: Images (Hidden on Mobile) --- */}
-          <div className="relative h-[500px] lg:h-[600px] w-full hidden lg:block rounded-[40px] overflow-hidden shadow-2xl bg-white">
+          {/* --- RIGHT SIDE: Images --- */}
+          {/* UPDATED: Reduced height to 'h-[280px]' on mobile to be more compact */}
+          <div className="relative h-[280px] md:h-[500px] lg:h-[600px] w-full block rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl bg-white">
              {expertsData.map((item, idx) => (
                <motion.div
                  key={item.id}

@@ -42,7 +42,8 @@ const BulbBannerAnimation = () => {
 
  {/* Heading at top of banner */}
   <motion.h1
-    className="absolute top-10 w-full text-center text-4xl md:text-7xl font-bold text-[#bf1e2e;] z-20"
+    // UPDATED: Added 'hidden md:block'
+    className="hidden md:block absolute top-10 w-full text-center text-4xl md:text-7xl font-bold text-[#bf1e2e;] z-20"
     initial={{ opacity: 0, y: -30 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1 }}
@@ -51,7 +52,7 @@ const BulbBannerAnimation = () => {
   </motion.h1>
 
 
-      <div className="relative z-10 w-full h-full flex align-center justify-center p-10 mt-24 -translate-x-7 md:translate-x-0">
+      <div className="relative z-10 w-full h-full flex align-center justify-center p-10 md:mt-24 mt-10 -translate-x-7 md:translate-x-0">
 
         {/* Pass key to force restart of animation */}
         <PuzzleBulb key={key} />

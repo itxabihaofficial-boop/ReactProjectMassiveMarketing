@@ -44,10 +44,12 @@ const cardsData = [
 
 const TextStackSection = () => {
   return (
-    <div className="relative w-full bg-white py-20 pb-40" id="services-section">
+    // UPDATED: 'pt-0' removes top space, 'pb-10' reduces bottom whitespace significantly.
+    <div className="relative w-full bg-white pt-0 pb-10" id="services-section">
       
       {/* --- Heading --- */}
-      <div className="max-w-full mx-auto px-6 mb-20 text-center">
+      {/* UPDATED: Changed 'mb-20' to 'mb-10' to bring cards closer to title */}
+      <div className="max-w-full mx-auto px-6 mb-10 text-center">
         <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900">
           What We Can <br/>Help With:
         </h2>
@@ -70,7 +72,7 @@ const TextStackSection = () => {
   );
 };
 
-const Card = ({ data, index, targetScale }) => {
+const Card = ({ data, index, targetScale }: any) => {
   const container = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -87,10 +89,10 @@ const Card = ({ data, index, targetScale }) => {
           top: `calc(2vh + ${index * 10}px)`, 
           scale
         }} 
-        // UPDATED: Changed h-[60vh] to h-[70vh] for mobile to fit more text
+        // UPDATED: 'h-[70vh]' on mobile ensures text fits without overflow.
         className={`relative w-[95%] md:w-[80%] max-w-[1600px] h-[70vh] md:h-[95vh] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl origin-top border border-slate-200 ${data.theme}`}
       >
-        {/* UPDATED: Reduced vertical padding (py-6) and margin (mb-6) for tighter fit on mobile */}
+        {/* UPDATED: 'py-6' tightens internal padding on mobile. */}
         <div className="w-full h-full flex flex-col items-center justify-center px-5 py-6 md:p-24 text-center">
             
             {/* Heading */}
@@ -99,6 +101,7 @@ const Card = ({ data, index, targetScale }) => {
             </h3>
             
             {/* Description */}
+            {/* UPDATED: 'mb-6' pulls the button closer to text on mobile. */}
             <p className="text-sm md:text-2xl text-white max-w-4xl leading-relaxed mb-6 md:mb-12 opacity-90">
                 {data.description}
             </p>

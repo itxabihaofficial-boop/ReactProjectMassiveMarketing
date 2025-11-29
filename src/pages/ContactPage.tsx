@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 // --- SECTION 1: HERO BANNER ---
 const ContactHero = () => {
   return (
-    // UPDATED: Changed min-h-[70vh] to min-h-[50vh] for mobile (md:min-h-[70vh] for desktop)
-    // UPDATED: Changed py-32 to py-20 for mobile (md:py-32 for desktop)
-    <section className="relative w-full min-h-[50vh] md:min-h-[70vh] py-20 md:py-32 px-6 flex flex-col items-center justify-center bg-gradient-to-b from-orange-50 via-white to-white overflow-hidden">
+    // UPDATED: 
+    // 1. Changed min-h-[50vh] to min-h-[30vh] (Made it much shorter on mobile)
+    // 2. Changed py-20 to py-12 (Reduced padding on mobile)
+    <section className="relative w-full min-h-[30vh] md:min-h-[70vh] py-12 md:py-32 px-6 flex flex-col items-center justify-center bg-gradient-to-b from-orange-50 via-white to-white overflow-hidden">
       
       <div className="relative z-10 text-center">
       
@@ -25,35 +26,38 @@ const ContactHero = () => {
 // --- SECTION 2: FORM SECTION ---
 const ContactFormSection = () => {
   return (
-    // UPDATED: Reduced top padding on mobile
     <section className="w-full pt-10 md:pt-20 bg-white px-4 md:px-8 pb-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <div className="lg:col-span-4 lg:sticky lg:top-32">
-          {/* UPDATED: Changed p-10 to p-6 for mobile (md:p-10 for desktop) to make the red box more compact */}
           <div className="bg-[#bf1e2e] text-white rounded-[30px] md:rounded-[40px] p-6 md:p-10 min-h-[50px] flex flex-col justify-between shadow-2xl relative overflow-hidden group">
             <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-white opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             
-            <div className="space-y-8 md:space-y-12 relative z-10">
+            {/* UPDATED: Added 'text-center md:text-left' to parent div */}
+            <div className="space-y-8 md:space-y-12 relative z-10 text-center md:text-left">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center gap-2">Email Us</h3>
+                {/* UPDATED: Added 'justify-center md:justify-start' to center icon+text on mobile */}
+                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2">Email Us</h3>
                 <a href="mailto:info@soulutionbox.com" className="text-base md:text-lg font-medium opacity-90 hover:opacity-100 underline decoration-white/30 underline-offset-4 transition-all">
                   info@soulutionbox.com
                 </a>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center gap-2 hover:opacity-100 ">Follow Us</h3>
+                {/* UPDATED: Added 'justify-center md:justify-start' */}
+                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2 hover:opacity-100 ">Follow Us</h3>
                 <div className="text-base md:text-lg font-medium opacity-90 flex flex-col gap-3">
-                  <a href='https://www.linkedin.com/company/soulutionbox/' target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:translate-x-2 transition-all">
-                     <Linkedin className="w-5 h-5" /> LinkedIn
+                  
+                  {/* UPDATED: Added 'justify-center md:justify-start' to all <a> tags below */}
+                  <a href='https://www.linkedin.com/company/soulutionbox/' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                      <Linkedin className="w-5 h-5" /> LinkedIn
                   </a>
                   
-                  <a href='https://www.facebook.com/share/g/16gvqpNXQf/?mibextid=wwXIfr' target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:translate-x-2 transition-all">
-                     <Facebook className="w-5 h-5" /> Facebook
+                  <a href='https://www.facebook.com/share/g/16gvqpNXQf/?mibextid=wwXIfr' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                      <Facebook className="w-5 h-5" /> Facebook
                   </a>
                   
-                  <a href='https://www.instagram.com/soulutionbox?igsh=MXJmbmVwYmhhMnppdg==' target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:translate-x-2 transition-all">
-                     <Instagram className="w-5 h-5" /> Instagram
+                  <a href='https://www.instagram.com/soulutionbox?igsh=MXJmbmVwYmhhMnppdg==' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                      <Instagram className="w-5 h-5" /> Instagram
                   </a>
                 </div>
               </div>
@@ -109,7 +113,6 @@ const CTAContainer = () => {
   };
 
   return (
-    // UPDATED: Changed py-32 to py-16 for mobile (md:py-32 for desktop)
     <section className="w-full bg-[#bf1e2e] py-16 md:py-32 relative overflow-hidden flex items-center justify-center border-b border-white/10">
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-red-400 rounded-full mix-blend-screen filter blur-[100px] opacity-40 -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-orange-400 rounded-full mix-blend-screen filter blur-[100px] opacity-40 translate-x-1/2 -translate-y-1/2"></div>
