@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
-import BulbImage from "../assets/Bulb.png";
+import BulbImage from "../assets/Bulb.png"; 
 
 const expertsData = [
   {
@@ -28,7 +28,8 @@ const ExpertScrollSection = () => {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
-      if (latest < 0.6) {
+      // Trigger the slide change at 50% scroll depth
+      if (latest < 0.5) {
         setActiveIndex(0);
       } else {
         setActiveIndex(1);
@@ -38,23 +39,24 @@ const ExpertScrollSection = () => {
   }, [scrollYProgress]);
 
   return (
-    <section ref={containerRef} className="relative h-auto md:h-[200vh] bg-[#f5f5f5] font-sans">
+    // 1. OUTER TRACK: 
+    // - Mobile: h-[250vh] gives you "scroll distance" to trigger the animation.
+    // - Desktop: h-[200vh] standard distance.
+    <section ref={containerRef} className="relative h-[250vh] md:h-[200vh] bg-[#f5f5f5] font-sans">
       
-      {/* Sticky Container */}
-      {/* UPDATED: Removed 'min-h' completely. Added 'py-10' only for mobile wrapper spacing. */}
-      <div className="sticky top-0 h-auto md:h-screen flex items-center overflow-hidden bg-[#f5f5f5] py-10 md:py-0">
+      {/* 2. STICKY VIEWPORT:
+         - top-0 h-screen: Pins the content to the screen while you scroll through the 250vh track.
+      */}
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-[#f5f5f5]">
         
-        {/* UPDATED: 
-            1. Changed 'gap-12' to 'gap-8' (Closer together).
-            2. Changed 'py-10' to 'py-0' (Removes extra internal whitespace).
-        */}
-        <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full py-0">
+        <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center h-full">
           
           {/* --- LEFT SIDE: Content --- */}
-          <div className="relative flex flex-col justify-center h-full pl-0 md:pl-4">
+          {/* Mobile: h-[50vh] ensures text takes top half of screen */}
+          <div className="relative flex flex-col justify-center pl-0 md:pl-4 h-[50vh] md:h-auto">
 
             {/* Number Indicators */}
-            <div className="absolute -top-2 md:top-24 right-0 flex flex-col gap-4">
+            <div className="absolute top-0 right-0 md:-top-2 md:top-24 flex flex-col gap-4 z-10">
               {expertsData.map((item, idx) => (
                 <div 
                   key={item.id}
@@ -71,11 +73,11 @@ const ExpertScrollSection = () => {
             </div>
 
             {/* Headings */}
-            <div className="grid grid-cols-1 mb-4 mt-6 md:mt-20">
+            <div className="grid grid-cols-1 mb-4 mt-2 md:mt-20">
               {expertsData.map((item, idx) => (
                 <motion.h2 
                   key={item.id}
-                  className="col-start-1 row-start-1 text-2xl md:text-5xl lg:text-5xl font-bold transition-all duration-500 pr-10 md:pr-0"
+                  className="col-start-1 row-start-1 text-3xl md:text-5xl lg:text-5xl font-bold transition-all duration-500 pr-10 md:pr-0"
                   initial={false}
                   animate={{
                     color: idx === activeIndex ? "#bf1e2e" : "#e5e7eb", 
@@ -113,8 +115,8 @@ const ExpertScrollSection = () => {
           </div>
 
           {/* --- RIGHT SIDE: Images --- */}
-          {/* UPDATED: Reduced height to 'h-[280px]' on mobile to be more compact */}
-          <div className="relative h-[280px] md:h-[500px] lg:h-[600px] w-full block rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl bg-white">
+          {/* Mobile: h-[35vh] ensures image takes bottom part of screen without overflow */}
+          <div className="relative h-[35vh] md:h-[500px] lg:h-[600px] w-full block rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl bg-white">
              {expertsData.map((item, idx) => (
                <motion.div
                  key={item.id}
@@ -129,7 +131,7 @@ const ExpertScrollSection = () => {
                  <img 
                    src={item.image} 
                    alt={item.title} 
-                   className="w-full h-full object-contain"
+                   className="w-full h-full object-contain p-4"
                  />
                </motion.div>
              ))}
