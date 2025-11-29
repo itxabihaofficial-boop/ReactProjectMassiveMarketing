@@ -13,7 +13,7 @@ const TextRevealSection = () => {
   const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="min-h-[40vh] flex items-center justify-center align-items-center bg-white px-8 py-14">
+    <section ref={containerRef} className="min-h-[40vh] flex items-center justify-center align-items-center bg-white pt-[70px] px-8 py-14">
       <div className="max-w-1xl mx-auto">
         <p className="text-3xl md:text-7xl sm:text-2xl font-bold justify-center leading-tight  flex flex-wrap gap-x-2 gap-y-1">
           {words.map((word, i) => {

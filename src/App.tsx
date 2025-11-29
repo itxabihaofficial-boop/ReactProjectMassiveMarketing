@@ -144,34 +144,34 @@ const App = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-50">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-orange-50 hover:text-[#e97e3a]"
-                >
-                  {item.name}
-                </Link>
-              ))}
+  <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-50">
+    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {navItems.map((item) => (
+        <Link
+          key={item.name}
+          to={item.path}
+          className="block px-3 py-2 rounded-md text-base font-medium border border-transparent text-gray-600 hover:bg-orange-50 hover:text-[#e97e3a] hover:border-[#e97e3a]"
+        >
+          {item.name}
+        </Link>
+      ))}
 
-              <button
-                onClick={handleServiceScroll}
-                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white-600 hover:bg-orange-50 hover:text-[#e97e3a]"
-              >
-                Services
-              </button>
+      <button
+        onClick={handleServiceScroll}
+        className="block px-3 py-2 rounded-md text-base font-medium border border-transparent bg-white text-gray-600 hover:bg-[#e97e3a] hover:text-white hover:border-[#e97e3a]"
+      >
+        Services
+      </button>
 
-              <Link
-                to="/contact"
-                className="block px-3 py-2 rounded-md text-base font-medium bg-[#e97e3a] text-white hover:bg-[#bf1e2e]"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        )}
+      <Link
+        to="/contact"
+        className="block px-3 py-2 rounded-md text-base font-medium border border-transparent bg-white text-gray-600 hover:bg-[#e97e3a] hover:text-white hover:border-[#e97e3a]"
+      >
+        Contact Us
+      </Link>
+    </div>
+  </div>
+)}
       </header>
 
       {/* --- Main Content (Routes) --- */}

@@ -20,7 +20,6 @@ const HomePage = () => {
       <TextStackSection />
       </section>
       <ExpertScrollSection />
-      <ScrollStack children={undefined} />
       <Testimonial />
     </div>
   );

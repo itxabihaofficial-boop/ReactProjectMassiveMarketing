@@ -42,7 +42,7 @@ const ExpertScrollSection = () => {
       
       {/* Sticky Container */}
       {/* UPDATED: Removed 'min-h' completely. Added 'py-10' only for mobile wrapper spacing. */}
-      <div className="sticky top-0 -mb-[66px] h-auto md:h-screen flex items-center overflow-hidden bg-[#f5f5f5] py-10 md:py-0">
+      <div className="sticky top-0 h-auto md:h-screen flex items-center overflow-hidden bg-[#f5f5f5] py-10 md:py-0">
         
         {/* UPDATED: 
             1. Changed 'gap-12' to 'gap-8' (Closer together).
