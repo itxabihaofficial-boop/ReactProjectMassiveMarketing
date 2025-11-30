@@ -34,29 +34,29 @@ const ContactFormSection = () => {
             <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-white opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             
             {/* UPDATED: Added 'text-center md:text-left' to parent div */}
-            <div className="space-y-8 md:space-y-12 relative z-10 text-center md:text-left">
+            <div className="space-y-8 md:space-y-12 relative z-10 md:text-left">
               <div>
                 {/* UPDATED: Added 'justify-center md:justify-start' to center icon+text on mobile */}
-                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2">Email Us</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 flex md:justify-start gap-2">Email Us</h3>
                 <a href="mailto:info@soulutionbox.com" className="text-base md:text-lg font-medium opacity-90 hover:opacity-100 underline decoration-white/30 underline-offset-4 transition-all">
                   info@soulutionbox.com
                 </a>
               </div>
               <div>
                 {/* UPDATED: Added 'justify-center md:justify-start' */}
-                <h3 className="text-xl md:text-2xl font-bold mb-3 flex items-center justify-center md:justify-start gap-2 hover:opacity-100 ">Follow Us</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 flex md:justify-start gap-2 hover:opacity-100 ">Follow Us</h3>
                 <div className="text-base md:text-lg font-medium opacity-90 flex flex-col gap-3">
                   
                   {/* UPDATED: Added 'justify-center md:justify-start' to all <a> tags below */}
-                  <a href='https://www.linkedin.com/company/soulutionbox/' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                  <a href='https://www.linkedin.com/company/soulutionbox/' target="_blank" rel="noreferrer" className="flex md:justify-start gap-2 hover:translate-x-2 transition-all">
                       <Linkedin className="w-5 h-5" /> LinkedIn
                   </a>
                   
-                  <a href='https://www.facebook.com/share/g/16gvqpNXQf/?mibextid=wwXIfr' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                  <a href='https://www.facebook.com/share/g/16gvqpNXQf/?mibextid=wwXIfr' target="_blank" rel="noreferrer" className="flex md:justify-start gap-2 hover:translate-x-2 transition-all">
                       <Facebook className="w-5 h-5" /> Facebook
                   </a>
                   
-                  <a href='https://www.instagram.com/soulutionbox?igsh=MXJmbmVwYmhhMnppdg==' target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-2 hover:translate-x-2 transition-all">
+                  <a href='https://www.instagram.com/soulutionbox?igsh=MXJmbmVwYmhhMnppdg==' target="_blank" rel="noreferrer" className="flex md:justify-start gap-2 hover:translate-x-2 transition-all">
                       <Instagram className="w-5 h-5" /> Instagram
                   </a>
                 </div>
